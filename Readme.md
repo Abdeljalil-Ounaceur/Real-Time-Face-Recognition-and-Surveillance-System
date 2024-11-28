@@ -18,12 +18,12 @@ A real-time surveillance system designed to perform facial recognition using VGG
 - Python (Programming Language)
 - TensorFlow / Keras (Deep Learning Frameworks)
 
-# Setting Up The model and The App
+## Setting Up The model and The App
 These are two separate things in one place, the model and the spring-boot app.
 The only relationship between the model and the spring-boot app is that they can use kafka to communicate, other than that there is no depedency betwee them. so they are two completely distinct projects. Let's follow 3 insanely simple steps to make our project work without problems.
 
 
-## Step 1: Kafka Topics
+### Step 1: Kafka Topics
 Firts, Run kafka and Create two topics `first-topic` and `second-topic`.
 ```
 cd c:\kafka\bin\windows
@@ -36,7 +36,7 @@ cd c:\kafka\bin\windows
 ```
 <br>
 
-## Step 2: Model Setup
+### Step 2: Model Setup
 
 Next, Open the `terminal` in the project location.
 
@@ -65,7 +65,7 @@ py image_sender.py
 
 <br>
 
-## Step 3: Spring Boot Setup
+### Step 3: Spring Boot Setup
 >Note: You need to  have at least Java 17 in JAVA_HOME instead of Java 1.8 because the spring-boot app is based on Java 17.  
 >You Also need to install **Maven** if not already installed.
 
@@ -75,7 +75,7 @@ cd spring-boot
 mvn dependency:resolve
 ./mvnw spring-boot:run
 ```
-## Step 4: Enjoy Your App
+### Step 4: Enjoy Your App
 
 Finally, open the brower and type `localhost:8080`  
 **ENJOY!**
