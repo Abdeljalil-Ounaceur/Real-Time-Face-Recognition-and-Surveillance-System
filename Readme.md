@@ -47,7 +47,7 @@ py image_sender.py
 
 ## Step 3: Spring Boot Setup
 >Note: You need to  have at least Java 17 in JAVA_HOME instead of Java 1.8 because the spring-boot app is based on Java 17.  
->You Also need to install **Maven** if not already installed, thank you.
+>You Also need to install **Maven** if not already installed.
 
 Next, Open another terminal and head to the project location again. and run these commands.
 ```
