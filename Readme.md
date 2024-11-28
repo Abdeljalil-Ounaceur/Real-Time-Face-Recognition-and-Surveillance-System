@@ -1,6 +1,6 @@
-# Real-Time Surveillance System (VGG-Face, Apache Spark, Kafka, Power BI)
+# Real-Time Surveillance System (VGG-Face, Apache Spark, Kafka)
 
-A real-time surveillance system designed to perform facial recognition using VGG-Face, integrated with Apache Spark and Kafka for efficient data processing and real-time streaming. The system utilizes Power BI for data visualization and reporting, providing an intelligent and scalable solution for security and surveillance applications.
+A real-time surveillance system designed to perform facial recognition using VGG-Face, integrated with Apache Spark and Kafka for efficient data processing and real-time streaming, providing an intelligent and scalable solution for security and surveillance applications.
 
 ## Features
 
@@ -15,7 +15,6 @@ A real-time surveillance system designed to perform facial recognition using VGG
 - VGG-Face (Facial Recognition)
 - Apache Spark (Big Data Processing)
 - Kafka (Data Streaming)
-- Power BI (Data Visualization)
 - Python (Programming Language)
 - TensorFlow / Keras (Deep Learning Frameworks)
 
