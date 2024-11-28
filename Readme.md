@@ -1,3 +1,24 @@
+# Real-Time Surveillance System (VGG-Face, Apache Spark, Kafka, Power BI)
+
+A real-time surveillance system designed to perform facial recognition using VGG-Face, integrated with Apache Spark and Kafka for efficient data processing and real-time streaming. The system utilizes Power BI for data visualization and reporting, providing an intelligent and scalable solution for security and surveillance applications.
+
+## Features
+
+- **Facial Recognition**: Uses VGG-Face to identify individuals from live video streams.
+- **Real-Time Processing**: Apache Spark and Kafka enable real-time data streaming and processing.
+- **Data Visualization**: Power BI provides interactive dashboards for monitoring and analyzing surveillance data.
+- **Scalability**: Designed to handle large volumes of data with distributed processing.
+- **Integration**: Seamless integration of machine learning, big data, and visualization tools for a comprehensive surveillance solution.
+
+## Technologies Used
+
+- VGG-Face (Facial Recognition)
+- Apache Spark (Big Data Processing)
+- Kafka (Data Streaming)
+- Power BI (Data Visualization)
+- Python (Programming Language)
+- TensorFlow / Keras (Deep Learning Frameworks)
+
 # Setting Up The model and The App
 These are two separate things in one place, the model and the spring-boot app.
 The only relationship between the model and the spring-boot app is that they can use kafka to communicate, other than that there is no depedency betwee them. so they are two completely distinct projects. Let's follow 3 insanely simple steps to make our project work without problems.
@@ -60,4 +81,6 @@ mvn dependency:resolve
 Finally, open the brower and type `localhost:8080`  
 **ENJOY!**
 
+## License
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
