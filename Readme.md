@@ -27,6 +27,7 @@ The only relationship between the model and the spring-boot app is that they can
 Firts, Run zookeeper and kafka and make sure they are correctly running.
 
 Create two topics `first-topic` and `second-topic`:
+
 in windows:
 ```
 [path to your kafka folder]\windows\kafka-topics localhost:9092 --create --topic first-topic
@@ -45,9 +46,9 @@ Next, Open the `terminal` in the project location.
 
 Let's create a new virtual environment and install the requirements:
 
-#### **PLEASE MAKE SURE YOU ARE WORKING WITH PYTHON 3.7 EXACTLY! 
-#### ALSO MAKE SURE THAT ```PIP``` IS UPGRADED TO THE LASTEST VERISON!
-#### OTHERWISE THE REQUIREMENTS WILL FAIL TO INSTALL!!!**
+**PLEASE MAKE SURE YOU ARE WORKING WITH PYTHON 3.7 EXACTLY! 
+ALSO MAKE SURE THAT ```PIP``` IS UPGRADED TO THE LASTEST VERISON!
+OTHERWISE THE REQUIREMENTS WILL FAIL TO INSTALL!!!**
 
 in windows:
 ```
