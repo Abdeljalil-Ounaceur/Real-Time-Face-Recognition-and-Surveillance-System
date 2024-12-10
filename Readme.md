@@ -24,15 +24,18 @@ The only relationship between the model and the spring-boot app is that they can
 
 
 ### Step 1: Kafka Topics
-Firts, Run kafka and Create two topics `first-topic` and `second-topic`.
+Firts, Run zookeeper and kafka and make sure they are correctly running.
+
+Create two topics `first-topic` and `second-topic`:
+in windows:
 ```
-cd c:\kafka\bin\windows
-
-.\zookeeper-server-start.bat c:\kafka\config\zookeeper.properties
-.\kafka-server-start.bat c:\kafka\config\server.properties
-
-.\kafka-topics localhost:9092 --create --topic first-topic
-.\kafka-topics localhost:9092 --create --topic second-topic
+[path to your kafka folder]\windows\kafka-topics localhost:9092 --create --topic first-topic
+[path to your kafka folder]\windows\kafka-topics localhost:9092 --create --topic second-topic
+```
+in linux:
+```
+[path to your kafka folder]\bin\kafka-topics.sh localhost:9092 --create --topic first-topic
+[path to your kafka folder]\bin\kafka-topics.sh localhost:9092 --create --topic second-topic
 ```
 <br>
 
@@ -41,11 +44,27 @@ cd c:\kafka\bin\windows
 Next, Open the `terminal` in the project location.
 
 Let's create a new virtual environment and install the requirements:
+
+#### **PLEASE MAKE SURE YOU ARE WORKING WITH PYTHON 3.7 EXACTLY! 
+#### ALSO MAKE SURE THAT ```PIP``` IS UPGRADED TO THE LASTEST VERISON!
+#### OTHERWISE THE REQUIREMENTS WILL FAIL TO INSTALL!!!**
+
+in windows:
 ```
 cd model
 
-py -m venv vggFace
+python -m venv vggFace
 vggFace\Scripts\activate
+
+pip install -r requirements.txt
+```
+
+in linux:
+```
+cd model
+
+python -m venv vggFace
+source ./vggFace/bin/activate
 
 pip install -r requirements.txt
 ```
