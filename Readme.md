@@ -30,13 +30,13 @@ Create two topics `first-topic` and `second-topic`:
 
 in windows:
 ```
-[path to your kafka folder]\windows\kafka-topics localhost:9092 --create --topic first-topic
-[path to your kafka folder]\windows\kafka-topics localhost:9092 --create --topic second-topic
+[path to your kafka folder]\windows\kafka-topics --bootstrap-server localhost:9092 --create --topic first-topic
+[path to your kafka folder]\windows\kafka-topics --bootstrap-server localhost:9092 --create --topic second-topic
 ```
 in linux:
 ```
-[path to your kafka folder]\bin\kafka-topics.sh localhost:9092 --create --topic first-topic
-[path to your kafka folder]\bin\kafka-topics.sh localhost:9092 --create --topic second-topic
+[path to your kafka folder]\bin\kafka-topics.sh --bootstrap-server localhost:9092 --create --topic first-topic
+[path to your kafka folder]\bin\kafka-topics.sh --bootstrap-server localhost:9092 --create --topic second-topic
 ```
 <br>
 
