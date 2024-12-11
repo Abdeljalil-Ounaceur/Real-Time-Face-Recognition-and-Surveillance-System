@@ -1,0 +1,26 @@
+# Version Control
+.git
+.gitignore
+
+# IDE
+.idea
+*.iml
+
+# Build artifacts
+target/
+*.log
+
+# Dependency directories
+node_modules/
+
+# Environment files
+.env
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Misc
+README.md
+LICENSE

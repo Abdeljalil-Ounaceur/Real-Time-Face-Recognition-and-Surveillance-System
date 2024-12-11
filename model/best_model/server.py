@@ -7,7 +7,7 @@ from model import predict_faces_info_from_image
 import numpy as np
 
 # Kafka configuration
-bootstrap_servers = ['localhost:9092']
+bootstrap_servers = ['kafka:9092']
 input_topic = 'first-topic'
 output_topic = 'second-topic'
 
