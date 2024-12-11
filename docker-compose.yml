@@ -1,0 +1,76 @@
+version: '3.2'
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2181:2181"
+    networks:
+      - face-recognition-network
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"  # Enable automatic topic creation
+    ports:
+      - "9092:9092"
+    networks:
+      - face-recognition-network
+
+  init-kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - kafka
+    entrypoint: ["/bin/bash", "-c"]
+    command: |
+      echo "Waiting for Kafka to start..."
+      # Wait until Kafka is reachable
+      while ! nc -z kafka 9092; do
+        echo "Waiting for Kafka to become available..."
+        sleep 5
+      done
+      echo "Kafka is available, creating topics..."
+      kafka-topics.sh --create --topic first-topic --bootstrap-server kafka:9092 --partitions 1 --replication-factor 1
+      kafka-topics.sh --create --topic second-topic --bootstrap-server kafka:9092 --partitions 1 --replication-factor 1
+      echo "Topics created successfully:"
+      kafka-topics.sh --list --bootstrap-server kafka:9092
+    networks:
+      - face-recognition-network
+
+  spring-boot-app:
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    build: 
+      context: .
+      dockerfile: spring-boot/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - kafka
+    networks:
+      - face-recognition-network
+
+  model-service:
+    volumes:
+      - ./model:/app/model
+    build: 
+      context: .
+      dockerfile: model/Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - kafka
+    networks:
+      - face-recognition-network
+
+networks:
+  face-recognition-network:
+    driver: bridge

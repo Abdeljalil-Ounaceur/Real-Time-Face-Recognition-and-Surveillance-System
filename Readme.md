@@ -15,10 +15,35 @@ A real-time surveillance system designed to perform facial recognition using VGG
 - VGG-Face (Facial Recognition)
 - Apache Spark (Big Data Processing)
 - Kafka (Data Streaming)
-- Python (Programming Language)
+- Python 3.7 (Programming Language)
 - TensorFlow / Keras (Deep Learning Frameworks)
+- Docker
+- Docker Compose
+- Python 3.8+
 
-## Setting Up The model and The App
+### Setup and Installation in Docker
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Abdeljalil-Ounaceur/Real-Time-Face-Recognition-and-Surveillance-System.git
+   cd Real-Time-Face-Recognition-and-Surveillance-System
+   ```
+
+2. **Build and Run with Docker Compose**
+   ```bash
+   docker-compose up --build
+   ```
+   This command will:
+   - Build the necessary Docker images for the model and Spring Boot services
+   - Start the containers
+   - Set up the networking between services
+
+3. **Stopping the Services**
+   ```bash
+   docker-compose down
+   ```
+
+## Setting Up The model and The App in Local Machine
 These are two separate things in one place, the model and the spring-boot app.
 The only relationship between the model and the spring-boot app is that they can use kafka to communicate, other than that there is no depedency betwee them. so they are two completely distinct projects. Let's follow 3 insanely simple steps to make our project work without problems.
 
