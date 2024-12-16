@@ -9,7 +9,7 @@ COPY spring-boot/.mvn .mvn
 COPY spring-boot/pom.xml .
 COPY spring-boot/src ./src
 
-RUN chmod +x mvnw
+RUN sed -i 's/\r$//' mvnw && chmod +x mvnw
 RUN ./mvnw package -DskipTests
 
 # Runtime
