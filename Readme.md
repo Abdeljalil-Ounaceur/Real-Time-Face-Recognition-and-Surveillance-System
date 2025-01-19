@@ -19,7 +19,6 @@ A real-time surveillance system designed to perform facial recognition using VGG
 - TensorFlow / Keras (Deep Learning Frameworks)
 - Docker
 - Docker Compose
-- Python 3.8+
 
 ### Setup and Installation in Docker
 
