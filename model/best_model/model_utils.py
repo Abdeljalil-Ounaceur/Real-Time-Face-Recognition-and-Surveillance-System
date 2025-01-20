@@ -96,7 +96,7 @@ def image_to_hash(model, image):
     return hash
 
 
-def load_dataset(dataset_path, crop=False, preprocess=True):
+def load_dataset(dataset_path, crop=False, preprocess=True, limit=None):
     if not os.path.exists(dataset_path):
         raise ValueError(f"Dataset path '{dataset_path}' does not exist!")
 
@@ -117,15 +117,19 @@ def load_dataset(dataset_path, crop=False, preprocess=True):
                         coordinates = extract_coordinates(img_array)
                         actual_faces = extract_faces(img_array, coordinates)
                     
-                    all_faces.append((actual_faces[0] if crop else img_array).reshape(224, 224, 3))
+                    all_faces.append((actual_faces[0] if crop else img_array))
                 except Exception as e:
                     print(f"Error loading image {img_path}: {e}")
         print(f"Found {len(all_faces)} valid images")
+        if limit:
+            if limit <= len(all_faces):
+                break
     if not all_faces:
         raise ValueError(f"No valid images found in '{dataset_path}'")
+
+    faces = np.asarray(all_faces, 'float32')
     
     if preprocess:
-        faces = np.asarray(all_faces, 'float32')
         faces = preprocess_input(faces, version=2)
         
 
